@@ -1,0 +1,21 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: main
+      import: app/west.yml
+    - name: ec-support-zmk-module
+      remote: petejohanson
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
+  self:
+    path: config

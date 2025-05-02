@@ -1,0 +1,45 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if BOARD_PIPRA_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Pipra"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif # BOARD_PIPRA_LEFT
+
+
+if BOARD_PIPRA_LEFT || BOARD_PIPRA_RIGHT
+
+config BOARD
+    default "pipra"
+
+config ZMK_SPLIT
+    default y
+
+config BT_CTLR
+    default BT
+
+config ZMK_MAX17048
+    default y
+
+if USB
+
+config USB_NRFX
+    default y
+
+config USB_DEVICE_STACK
+    default y
+
+config I2C
+  default y
+
+config ZMK_MAX17048
+	default y
+
+endif # USB
+
+endif # BOARD_PIPRA_LEFT || BOARD_PIPRA_RIGHT

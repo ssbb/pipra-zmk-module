@@ -1,0 +1,85 @@
+/*
+ * Copyright (c) 2025 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <zephyr/dt-bindings/dt-util.h>
+#include <zephyr/dt-bindings/adc/adc.h>
+#include <zephyr/dt-bindings/gpio/nordic-nrf-gpio.h>
+
+#include <freq.h>
+
+#include "pipra.dtsi"
+
+&adc {
+    channel@1 {
+        zephyr,input-positive = <NRF_SAADC_AIN3>; // P0.05
+    };
+};
+
+&amux {
+    select-gpios
+        = <&gpio0  4 GPIO_ACTIVE_HIGH>
+        , <&gpio0 12 GPIO_ACTIVE_HIGH>
+        , <&gpio0  7 GPIO_ACTIVE_HIGH>
+        ;
+    en-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
+};
+
+&left_encoder {
+    status = "okay";
+};
+
+&led_red {
+    gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&led_yellow {
+    gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&led_green {
+    gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&kscan0 {
+    input-gpios
+        = <&amux 0 0>
+        , <&amux 5 0>
+        , <&amux 7 0>
+        , <&amux 6 0>
+        , <&amux 4 0>
+        , <&amux 3 0>
+        ;
+    io-channels = <&adc 1>;
+    strobe-gpios
+        = <&gpio0 30 GPIO_ACTIVE_HIGH>
+        , <&gpio0 31 GPIO_ACTIVE_HIGH>
+        , <&gpio0 29 GPIO_ACTIVE_HIGH>
+        ;
+    strobe-input-masks = <
+        BIT(5)
+        0
+        (BIT(0) + BIT(4))
+    >;
+    drain-gpios = <&gpio0 26 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+    power-gpios = <&gpio0  6 GPIO_ACTIVE_HIGH>;
+};
+
+&pinctrl {
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 3)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 28)>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 3)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 28)>;
+            low-power-enable;
+        };
+    };
+};

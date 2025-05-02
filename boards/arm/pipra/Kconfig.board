@@ -1,0 +1,14 @@
+# Copyright (c) 2025 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config BOARD_PIPRA_LEFT
+    bool "pipra left"
+    select ZMK_KSCAN_EC_MATRIX_FAKE_OPEN_DRAIN
+    imply ZMK_KSCAN_EC_MATRIX_DYNAMIC_POLL_RATE
+    depends on SOC_NRF52840_QIAA
+
+config BOARD_PIPRA_RIGHT
+    bool "pipra right"
+    select ZMK_KSCAN_EC_MATRIX_FAKE_OPEN_DRAIN
+    imply ZMK_KSCAN_EC_MATRIX_DYNAMIC_POLL_RATE
+    depends on SOC_NRF52840_QIAA

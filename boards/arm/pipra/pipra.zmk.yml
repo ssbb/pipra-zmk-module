@@ -1,0 +1,15 @@
+file_format: "1"
+id: pipra
+name: Pipra
+url: https://github.com/ssbb/pipra
+type: board
+arch: arm
+features:
+  - keys
+  - encoders
+outputs:
+  - usb
+  - ble
+siblings:
+  - pipra_left
+  - pipra_right
