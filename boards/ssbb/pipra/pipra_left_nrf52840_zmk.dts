@@ -31,18 +31,6 @@
     status = "okay";
 };
 
-&led_red {
-    gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
-};
-
-&led_yellow {
-    gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
-};
-
-&led_green {
-    gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
-};
-
 &kscan0 {
     input-gpios
         = <&amux 0 0>

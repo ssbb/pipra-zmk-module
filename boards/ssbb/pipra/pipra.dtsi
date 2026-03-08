@@ -141,7 +141,6 @@ zephyr_udc0: &usbd {
     };
 };
 
-
 &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twim";
@@ -188,4 +187,20 @@ zephyr_udc0: &usbd {
             reg = <0x00074000 0x0000c000>;
         };
     };
+};
+
+&led_red {
+    gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&led_yellow {
+    gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&led_green {
+    gpios = <&gpio1 6 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
+};
+
+&reg1 {
+    regulator-initial-mode = <NRF5X_REG_MODE_DCDC>;
 };

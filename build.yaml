@@ -13,11 +13,18 @@
 #
 ---
 include:
-  - board: pipra_left
-  - board: pipra_left
+  - board: pipra_left@1//zmk
+    artifact-name: pipra_left_1_0_0
+  - board: pipra_left@1//zmk
     snippet: enable_ec_calibrator
-    artifact-name: pipra_left_calibrator
-  - board: pipra_right
-  - board: pipra_right
+    artifact-name: pipra_left_1_0_0_calibrator
+  - board: pipra_right@1//zmk
+    artifact-name: pipra_right_1_0_0
+  - board: pipra_right@1//zmk
     snippet: enable_ec_calibrator
-    artifact-name: pipra_right_calibrator
+    artifact-name: pipra_right_1_0_0_calibrator
+  - board: pipra_right@0.1//zmk
+    artifact-name: pipra_right_0_1_0
+  - board: pipra_right@0.1//zmk
+    snippet: enable_ec_calibrator
+    artifact-name: pipra_right_0_1_0_calibrator
