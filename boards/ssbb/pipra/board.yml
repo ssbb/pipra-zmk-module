@@ -1,0 +1,13 @@
+boards:
+  - name: pipra_left
+    vendor: ssbb
+    socs:
+      - name: nrf52840
+        variants:
+          - name: zmk
+  - name: pipra_right
+    vendor: ssbb
+    socs:
+      - name: nrf52840
+        variants:
+          - name: zmk
