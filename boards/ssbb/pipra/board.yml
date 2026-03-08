@@ -5,9 +5,23 @@ boards:
       - name: nrf52840
         variants:
           - name: zmk
+    revision:
+      format: major.minor.patch
+      default: 1.0.0
+      exact: true
+      revisions:
+        - name: 0.1.0
+        - name: 1.0.0
   - name: pipra_right
     vendor: ssbb
     socs:
       - name: nrf52840
         variants:
           - name: zmk
+    revision:
+      format: major.minor.patch
+      default: 1.0.0
+      exact: true
+      revisions:
+        - name: 0.1.0
+        - name: 1.0.0

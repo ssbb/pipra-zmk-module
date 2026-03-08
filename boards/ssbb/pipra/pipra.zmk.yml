@@ -13,3 +13,6 @@ outputs:
 siblings:
   - pipra_left
   - pipra_right
+versions:
+  - 0.1.0
+  - 1.0.0
